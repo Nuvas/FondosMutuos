@@ -1,4 +1,4 @@
 FondosMutuos
 ============
 
-Catalogo web con información de los fondos mutuos de los administradores chilenos.
+Catalogo con información de los fondos mutuos de los administradores chilenos.
