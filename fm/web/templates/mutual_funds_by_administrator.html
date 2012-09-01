@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="block">
+
+    <div class="block_head">
+        <div class="bheadl"></div>
+        <div class="bheadr"></div>
+        <h2>Fondos del administrador: {{administrator}}</h2>
+        <ul>
+            <li>link a banchile</li>
+            <li>link a bbva</li>
+            <li>link a scotia</li>
+        </ul>
+    </div>
+
+    <div class="block_content">
+            <table class="sortable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Fondo</th>
+                        <th>3 meses</th>
+                        <th>12 meses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mutual_fund in mutual_funds %}
+                    {% with day=mutual_fund.get_last_day %}
+                    <tr>
+                        <td></td>
+                        <td><a href="{{mutual_fund.get_absolute_url}}">{{mutual_fund}}</a></td>
+                        <td>{{day.real_3_months}}%</td>
+                        <td>{{day.real_12_months}}%</td>
+                    </tr>
+                    {% endwith %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        <?php endif; ?>
+    </div>
+    <div class="bendl"></div>
+    <div class="bendr"></div>
+</div>
+{% endblock %}

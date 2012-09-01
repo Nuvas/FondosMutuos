@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="block">
+
+    <div class="block_head">
+        <div class="bheadl"></div>
+        <div class="bheadr"></div>
+        <h2>Administradores</h2>
+    </div>
+
+    <div class="block_content">
+
+            <table class="sortable">
+                <tbody>
+                    {% for administrator in administrators %}
+                    <tr>
+                      <td><a href="{{ administrator.get_absolute_url }}">{{administrator}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+    </div>
+    <div class="bendl"></div>
+    <div class="bendr"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="/static/js/mutualfund/base.js"></script>
+
+<div class="block small left">
+
+    <div class="block_head">
+        <div class="bheadl"></div>
+
+        <div class="bheadr"></div>
+
+        <h2 id="id_mutualFundTitle" data-id="{{mutual_fund.id}}">
+            Fondo Mutuo: {{mutual_fund}} - <a href="{{mutual_fund.administrator.get_absolute_url}}">{{mutual_fund.administrator}}</a>
+        </h2>
+    </div>
+
+
+
+    <div class="block_content">
+
+        <h2>Última actualización: </h2>
+        <p>{{day.date}}</p>
+        <h2>Valor cuota: </h2>
+        <p>{{day.nav}}</p>
+
+        <table>
+          <tr>
+              <th>Nominal diario</th>
+              <th>Nominal 30 días</th>
+              <th>Real 30 días</th>
+              <th>Nominal 3 meses</th>
+              <th>Real 3 meses</th>
+              <th>Nominal 12 meses</th>
+              <th>Real 12 meses</th>
+          </tr>
+          <tr>
+              <th>{{day.daily_nominal}}</th>
+              <th>{{day.nominal_30_days}}</th>
+              <th>{{day.real_30_days}}</th>
+              <th>{{day.nominal_3_months}}</th>
+              <th>{{day.real_3_months}}</th>
+              <th>{{day.nominal_12_months}}</th>
+              <th>{{day.real_12_months}}</th>
+          </tr>
+        </table>
+
+    </div>
+
+    <div class="bendl"></div>
+    <div class="bendr"></div>
+
+</div>
+
+
+
+<div class="block small right">
+
+    <div class="block_head">
+        <div class="bheadl"></div>
+
+        <div class="bheadr"></div>
+
+        <h2>Gráfico</h2>
+    </div>
+
+
+
+    <div class="block_content">
+
+        <div id="id_chart"></div>
+
+    </div>
+
+    <div class="bendl"></div>
+
+    <div class="bendr"></div>
+
+</div>
+{% endblock %}
