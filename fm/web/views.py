@@ -6,7 +6,7 @@ def home(request):
     return redirect('administrators_list')
 
 def administrators_list(request):
-    administrators = Administrator.objects.filter(id__in=[1,3,18])
+    administrators = Administrator.objects.all()
     return render_to_response('administrators_list.html', locals())
 
 def mutual_funds_by_administrator(request, administrator_id, slug):

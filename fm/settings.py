@@ -150,3 +150,5 @@ LOGGING = {
         },
     }
 }
+
+JUNAR_AUTH_KEY = 'yourauthkey'
