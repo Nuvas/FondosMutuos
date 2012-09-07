@@ -152,3 +152,8 @@ LOGGING = {
 }
 
 JUNAR_AUTH_KEY = 'yourauthkey'
+
+try:
+    from fm.local_settings import *
+except ImportError:
+    pass
