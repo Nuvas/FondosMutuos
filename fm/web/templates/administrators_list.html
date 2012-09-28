@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block body %}
+<style>
+.block .block_content .imglist li img{max-width: 150px; max-height: 50px;}
+.block .block_content .imglist li{text-align:center;}
+</style>
 <div class="block">
 
     <div class="block_head">
@@ -10,15 +14,16 @@
 
     <div class="block_content">
 
-            <table class="sortable">
-                <tbody>
-                    {% for administrator in administrators %}
-                    <tr>
-                      <td><a href="{{ administrator.get_absolute_url }}">{{administrator}}</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <ul class="imglist">
+                {% for administrator in administrators %}
+                  <li>
+                  <a title="{{administrator}}" href="{{ administrator.get_absolute_url }}">
+                    <img class="administrator_logo" src="{{ administrator.image }}" />
+                    <br/>{{administrator}}
+                  </a>
+                  </li>
+                {% endfor %}
+            </ul>
 
     </div>
     <div class="bendl"></div>

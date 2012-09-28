@@ -6,6 +6,7 @@ class Administrator(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
+    image = models.CharField(max_length=255)
 
     class Meta:
         db_table = 'administrator'
@@ -46,8 +47,8 @@ class MutualFund(models.Model):
         return response
 
 class Day(models.Model):
-    date = models.DateField(primary_key=True)
-    mutual_fund = models.ForeignKey(MutualFund, primary_key=True)
+    date = models.DateField()
+    mutual_fund = models.ForeignKey(MutualFund)
     nav = models.FloatField()
     daily_nominal = models.FloatField()
     nominal_30_days = models.FloatField()
@@ -60,3 +61,4 @@ class Day(models.Model):
     class Meta:
         db_table = 'day'
         ordering = ['-date']
+        unique_together = ('date', 'mutual_fund')
